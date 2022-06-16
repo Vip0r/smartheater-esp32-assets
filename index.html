@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <meta charset="utf-8"></meta>
+        <link rel="icon" href="data:,"></link>
+        <link rel="stylesheet" href="https://vip0r.github.io/smartheater-esp32-assets/mini.css" onerror="this.onerror=null;this.href='https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.min.css';"></link>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>        
+    </head>
+
+    <body onload="init_update()">
+        <header>
+            <a href="../" class="button">Status</a>
+            <a href="./config/show" class="button">Konfiguration</a>
+            <a href="./pwm_test/show" class="button">Test</a>
+            <a href="../log/show" class="button">Log</a>
+          </header>
+
+         
+          <div class="container">
+            <div class="row">
+                <div class="card" style="align-self:flex-start;">
+                        <h3 class="section">Status</h3>
+                        <p class="section"><mark id="statusmark" class="tag"><span id="status">{status}</span></mark></p>
+                        <p class="section"><mark id="statusmark_ww" class="tag"><span id="status_ww">{status_ww}</span></mark></p>
+                        <p class="section"><mark id="statusmark_bath" class="tag"><span id="status_bath">{status_bath}</span></mark></p>
+                        <p class="section"><mark id="statusmark_vl" class="tag"><span id="status_vl">{status_vl}</span></mark></p>
+                </div>
+                <div class="card" style="align-self:flex-start;">
+                    <h3 class="section">Leistungswerte (Watt)</h3>
+                    <p class="section">Netzübergabepunkt: <mark class="tag"><span id="grid">{grid}</span></mark></p>
+                        <p class="section">Verfügbare Gesamtleistung: <mark class="tag"><span id="total_available_power">{total_available_power}</span></mark></p>
+                        <p class="section">Heizstab WW: <span id="water_power">{water_power}</span> / <span id="water_power_max">{water_power_max}</span> </p>
+                        <p class="section">
+                            <progress id="ww_bar" value="0" max="0" class="primary"></progress>
+                        </p>
+                        <p class="section">Heizstab Bad: <span id="bath_power">{bath_power}</span> / <span id="bath_power_max">{bath_power_max}</span> </p>
+                        <p class="section">
+                            <progress id="bath_bar" value="0" max="0" class="tertiary"></progress>
+                        </p>
+                        <p class="section">Heizstab VL: <span id="heat_power">{heat_power}</span> / <span id="heat_power_max">{heat_power_max> </p>
+                        <p class="section">
+                            <progress id="vl_bar" value="0" max="0" class="secondary"></progress>
+                        </p>
+                </div>
+                <div class="card" style="align-self:flex-start;">
+                    <h3 class="section">Temperaturen (C)</h3>
+                        <p class="section">Warmwasser Ist(<span id="temp_ww">{temp_ww}</span>) / Soll(<span id="soll_temp_ww">{soll_temp_ww}</span>) </p>
+                        <p class="section">
+                            <progress id="ww_temp_bar" value="0" max="0" class="primary"></progress>
+                        </p>
+                        <p class="section">Vorlauf Ist(<span id="temp_vl">{temp_ww}</span>) / Soll(<span id="soll_temp_vl">{soll_temp_vl}</span>) </p>
+                        <p class="section">
+                        <progress id="vl_temp_bar" value="0" max="0" class="primary"></progress>
+                </div>
+                <div class="card" style="align-self:flex-start;">
+                    <h3 class="section">Betriebsarten</h3>
+                        <form>
+                            <label for="mode_ww">Betriebsart Warmwasser:</label></br>  
+                            <select name="mode_ww" id="mode_ww">
+                            <option value="not_available"></option>
+                            <option value="auto">Auto</option>
+                            <option value="off">Hand AUS</option>
+                            <option value="on">Hand Ein</option>
+                            </select></br></br>
+                        <label for="mode_bath">Betriebsart Bad:</label></br>    
+                        <select name="mode_bath" id="mode_bath">
+                            <option value="not_available"></option>
+                            <option value="auto">Auto</option>
+                            <option value="off">Hand AUS</option>
+                            <option value="on">Hand Ein</option>
+                            </select></br></br>
+                        <label for="mode_vl">Betriebsart Vorlauf:</label></br> 
+                        <select name="mode_vl" id="mode_vl">
+                            <option value="not_available"></option>
+                            <option value="auto">Auto</option>
+                            <option value="off">Hand AUS</option>
+                            <option value="on">Hand Ein</option>
+                            </select></br></br>
+
+                    
+                        <button type="button" onclick="update_mode()">Betriebsarten aktualisieren</button>
+                        </form>
+
+                </div>
+            </div>
+         
+
+        <script src="https://vip0r.github.io/smartheater-esp32-assets/default.js"></script>
+        <script>
+            if (typeof regular_update === 'undefined') {
+                document.write('<script src="./assets/default.js">\x3C/script>');
+            }
+        </script>
+    </body>
+</html> 
