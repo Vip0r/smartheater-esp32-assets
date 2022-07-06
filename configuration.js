@@ -5,7 +5,7 @@ function updateConfig () {
     if(document.getElementById("wifi_mode").value !== window.current_config.wifi_mode 
     || document.getElementById("wifi_ssid").value !== window.current_config.wifi_ssid 
     || document.getElementById("wifi_key").value !== window.current_config.wifi_key
-    || document.getElementById("varta_host").value !== window.current_config.varta_host 
+    || document.getElementById("smartmeter_host").value !== window.current_config.smartmeter_host 
     || document.getElementById("heizstab.id1.prio").value !== window.current_config.heizstab.id1.prio
     || document.getElementById("heizstab.id1.name_kurz").value !== window.current_config.heizstab.id1.name_kurz
     || document.getElementById("heizstab.id1.name").value !== window.current_config.heizstab.id1.name
@@ -95,10 +95,10 @@ function updateConfig () {
             err=true 
         }
 
-        if(!document.getElementById("varta_host").value.match("^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$")
-        && !document.getElementById("varta_host").value.match("^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$")
+        if(!document.getElementById("smartmeter_host").value.match("^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$")
+        && !document.getElementById("smartmeter_host").value.match("^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$")
         ){
-            alert("VARTA Host muss eine IP oder ein Hostname sein")
+            alert("smartmeter Host muss eine IP oder ein Hostname sein")
             err=true 
         }
 
@@ -320,7 +320,7 @@ function updateConfig () {
             newconfig.wifi_mode = document.getElementById("wifi_mode").value
             newconfig.wifi_ssid = document.getElementById("wifi_ssid").value
             newconfig.wifi_key = document.getElementById("wifi_key").value
-            newconfig.varta_host = document.getElementById("varta_host").value
+            newconfig.smartmeter_host = document.getElementById("smartmeter_host").value
 
             newconfig.heizstab.id1.name_kurz = document.getElementById("heizstab.id1.name_kurz").value
             newconfig.heizstab.id1.name = document.getElementById("heizstab.id1.name").value
@@ -436,7 +436,7 @@ function onload () {
     document.getElementById("wifi_mode").value = jsonResponse.wifi_mode;
     document.getElementById("wifi_ssid").value = jsonResponse.wifi_ssid;
     document.getElementById("wifi_key").value = jsonResponse.wifi_key;
-    document.getElementById("varta_host").value = jsonResponse.varta_host;
+    document.getElementById("smartmeter_host").value = jsonResponse.smartmeter_host;
 
     document.getElementById("heizstab.id1.prio").value = jsonResponse.heizstab.id1.prio;
     document.getElementById("heizstab.id1.name_kurz").value = jsonResponse.heizstab.id1.name_kurz;
