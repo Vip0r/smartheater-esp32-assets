@@ -5,6 +5,7 @@ function updateConfig () {
     if(document.getElementById("wifi_mode").value !== window.current_config.wifi_mode 
     || document.getElementById("wifi_ssid").value !== window.current_config.wifi_ssid 
     || document.getElementById("wifi_key").value !== window.current_config.wifi_key
+    || document.getElementById("smartmeter_type").value !== window.current_config.smartmeter_type
     || document.getElementById("smartmeter_host").value !== window.current_config.smartmeter_host 
     || document.getElementById("heizstab.id1.prio").value !== window.current_config.heizstab.id1.prio
     || document.getElementById("heizstab.id1.name_kurz").value !== window.current_config.heizstab.id1.name_kurz
@@ -93,6 +94,12 @@ function updateConfig () {
         {
             alert("WiFI Key nicht valide")
             err=true 
+        }
+
+        if(document.getElementById("smartmeter_type").value !== "VARTA"
+        && document.getElementById("smartmeter_type").value !== "TASMOTA"){
+            alert("Aktuell werden nur die Smartmeter VARTA und TASMOTA unterstuetzt")
+            err=true
         }
 
         if(!document.getElementById("smartmeter_host").value.match("^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$")
@@ -320,6 +327,7 @@ function updateConfig () {
             newconfig.wifi_mode = document.getElementById("wifi_mode").value
             newconfig.wifi_ssid = document.getElementById("wifi_ssid").value
             newconfig.wifi_key = document.getElementById("wifi_key").value
+            newconfig.smartmeter_type = document.getElementById("smartmeter_type").value
             newconfig.smartmeter_host = document.getElementById("smartmeter_host").value
 
             newconfig.heizstab.id1.name_kurz = document.getElementById("heizstab.id1.name_kurz").value
@@ -436,6 +444,7 @@ function onload () {
     document.getElementById("wifi_mode").value = jsonResponse.wifi_mode;
     document.getElementById("wifi_ssid").value = jsonResponse.wifi_ssid;
     document.getElementById("wifi_key").value = jsonResponse.wifi_key;
+    document.getElementById("smartmeter_type").value = jsonResponse.smartmeter_type;
     document.getElementById("smartmeter_host").value = jsonResponse.smartmeter_host;
 
     document.getElementById("heizstab.id1.prio").value = jsonResponse.heizstab.id1.prio;
