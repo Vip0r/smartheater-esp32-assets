@@ -84,9 +84,9 @@ function updateConfig () {
             err=true
         }
 
-        if(!document.getElementById("wifi_ssid").value.match("^[A-Za-z0-9]+$"))
+        if(!document.getElementById("wifi_ssid").value.match("[ -~]"))
         {
-            alert("WiFi SSID darf nur Zahlen und Buchstaben enthalten")
+            alert("WiFi SSID nicht valide")
             err=true 
         }
 
