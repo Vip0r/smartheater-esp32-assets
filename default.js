@@ -10,6 +10,7 @@ function regular_update () {
     req.onload  = function() {
     var jsonResponse = JSON.parse(req.responseText);
     document.getElementById("grid").innerHTML = jsonResponse.grid;
+    document.getElementById("inverter").innerHTML = jsonResponse.inverter;
     document.getElementById("total_available_power").innerHTML = jsonResponse.total_available_power;
 
     document.getElementById("temp_ww").innerHTML = jsonResponse.temp_ww;
@@ -90,6 +91,7 @@ function regular_update () {
     req.onload  = function() {
     var jsonResponse = JSON.parse(req.responseText);
     document.getElementById("grid").innerHTML = jsonResponse.grid;
+    document.getElementById("inverter").innerHTML = jsonResponse.inverter;
     document.getElementById("total_available_power").innerHTML = jsonResponse.total_available_power;
 
     document.getElementById("temp_ww").innerHTML = jsonResponse.temp_ww;
