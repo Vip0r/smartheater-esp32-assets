@@ -10,10 +10,10 @@ function regular_update () {
     req.onload  = function() {
     var jsonResponse = JSON.parse(req.responseText);
     document.getElementById("grid").innerHTML = jsonResponse.grid;
-    try {
-        document.getElementById("inverter").innerHTML = jsonResponse.inverter;
-    } catch {
-    }
+    document.getElementById("inverter").innerHTML = jsonResponse.inverter;
+    document.getElementById("soc").innerHTML = jsonResponse.soc;
+    document.getElementById("pv").innerHTML = jsonResponse.pv;
+    document.getElementById("consumption").innerHTML = jsonResponse.consumption;
     document.getElementById("total_available_power").innerHTML = jsonResponse.total_available_power;
 
     document.getElementById("temp_ww").innerHTML = jsonResponse.temp_ww;
@@ -94,10 +94,10 @@ function regular_update () {
     req.onload  = function() {
     var jsonResponse = JSON.parse(req.responseText);
     document.getElementById("grid").innerHTML = jsonResponse.grid;
-    try {
-        document.getElementById("inverter").innerHTML = jsonResponse.inverter;
-    } catch {
-    }
+    document.getElementById("inverter").innerHTML = jsonResponse.inverter;
+    document.getElementById("soc").innerHTML = jsonResponse.soc;
+    document.getElementById("pv").innerHTML = jsonResponse.pv;
+    document.getElementById("consumption").innerHTML = jsonResponse.consumption;
     document.getElementById("total_available_power").innerHTML = jsonResponse.total_available_power;
 
     document.getElementById("temp_ww").innerHTML = jsonResponse.temp_ww;
