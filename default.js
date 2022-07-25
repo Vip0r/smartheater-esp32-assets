@@ -12,7 +12,7 @@ function regular_update () {
     document.getElementById("grid").innerHTML = jsonResponse.grid;
     document.getElementById("inverter").innerHTML = jsonResponse.inverter;
     document.getElementById("soc").innerHTML = jsonResponse.soc;
-    document.getElementById("soc_bar").innerHTML = jsonResponse.soc;
+    document.getElementById("soc_bar").value = jsonResponse.soc;
     document.getElementById("pv").innerHTML = jsonResponse.pv;
     document.getElementById("consumption").innerHTML = jsonResponse.consumption;
     document.getElementById("total_available_power").innerHTML = jsonResponse.total_available_power;
@@ -97,7 +97,7 @@ function regular_update () {
     document.getElementById("grid").innerHTML = jsonResponse.grid;
     document.getElementById("inverter").innerHTML = jsonResponse.inverter;
     document.getElementById("soc").innerHTML = jsonResponse.soc;
-    document.getElementById("soc_bar").innerHTML = jsonResponse.soc;
+    document.getElementById("soc_bar").value = jsonResponse.soc;
     document.getElementById("pv").innerHTML = jsonResponse.pv;
     document.getElementById("consumption").innerHTML = jsonResponse.consumption;
     document.getElementById("total_available_power").innerHTML = jsonResponse.total_available_power;
