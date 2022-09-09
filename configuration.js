@@ -464,13 +464,6 @@ function onload () {
     document.getElementById("pumpe").value = jsonResponse.pumpe;
     document.getElementById("debuglevel").value = jsonResponse.debuglevel;
 
-
-    if(jsonResponse.pumpe == "disabled"){
-        document.getElementById("button_start_pump").disabled = 1
-        document.getElementById("button_stop_pump").disabled = 1
-        }
-
-
     document.getElementById("heizstab.id1.prio").value = jsonResponse.heizstab.id1.prio;
     document.getElementById("heizstab.id1.name_kurz").value = jsonResponse.heizstab.id1.name_kurz;
     document.getElementById("heizstab.id1.name").value = jsonResponse.heizstab.id1.name;
