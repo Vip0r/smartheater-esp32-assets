@@ -10,9 +10,10 @@ function regular_update () {
     req.onload  = function() {
     var jsonResponse = JSON.parse(req.responseText);
     document.getElementById("grid").innerHTML = jsonResponse.grid;
+    document.getElementById("puffer").innerHTML = jsonResponse.puffer;
     document.getElementById("inverter").innerHTML = jsonResponse.inverter;
     document.getElementById("soc").innerHTML = jsonResponse.soc;
-    document.getElementById("soc_bar").value = jsonResponse.soc;
+    document.getElementById("soc_bar").innerHTML = jsonResponse.soc;
     document.getElementById("pv").innerHTML = jsonResponse.pv;
     document.getElementById("consumption").innerHTML = jsonResponse.consumption;
     document.getElementById("total_available_power").innerHTML = jsonResponse.total_available_power;
@@ -40,6 +41,7 @@ function regular_update () {
     document.getElementById("status_ww").innerHTML = jsonResponse.status_ww;
     document.getElementById("status_bath").innerHTML = jsonResponse.status_bath;
     document.getElementById("status_vl").innerHTML = jsonResponse.status_vl;
+    document.getElementById("pumpe").innerHTML = jsonResponse.pumpe;
 
     document.getElementById("status").innerHTML = jsonResponse.status;
     if(jsonResponse.status == "Betrieb"){
@@ -72,6 +74,14 @@ function regular_update () {
     }else{
       document.getElementById("statusmark_vl").classList.remove("tertiary")
       document.getElementById("statusmark_vl").classList.add("primary")
+    }
+
+    if(jsonResponse.pumpe == "Pumpe: Aktiv"){
+      document.getElementById("statusmark_pumpe").classList.add("tertiary")
+      document.getElementById("statusmark_pumpe").classList.remove("primary")
+    }else{
+      document.getElementById("statusmark_pumpe").classList.remove("tertiary")
+      document.getElementById("statusmark_pumpe").classList.add("primary")
     }
 
 
@@ -95,9 +105,10 @@ function regular_update () {
     req.onload  = function() {
     var jsonResponse = JSON.parse(req.responseText);
     document.getElementById("grid").innerHTML = jsonResponse.grid;
+    document.getElementById("puffer").innerHTML = jsonResponse.puffer;
     document.getElementById("inverter").innerHTML = jsonResponse.inverter;
     document.getElementById("soc").innerHTML = jsonResponse.soc;
-    document.getElementById("soc_bar").value = jsonResponse.soc;
+    document.getElementById("soc_bar").innerHTML = jsonResponse.soc;
     document.getElementById("pv").innerHTML = jsonResponse.pv;
     document.getElementById("consumption").innerHTML = jsonResponse.consumption;
     document.getElementById("total_available_power").innerHTML = jsonResponse.total_available_power;
@@ -119,6 +130,7 @@ function regular_update () {
     document.getElementById("status_ww").innerHTML = jsonResponse.status_ww;
     document.getElementById("status_bath").innerHTML = jsonResponse.status_bath;
     document.getElementById("status_vl").innerHTML = jsonResponse.status_vl;
+    document.getElementById("pumpe").innerHTML = jsonResponse.pumpe;
 
     document.getElementById("status").innerHTML = jsonResponse.status;
     if(jsonResponse.status == "Betrieb"){
@@ -151,6 +163,14 @@ function regular_update () {
     }else{
       document.getElementById("statusmark_vl").classList.remove("tertiary")
       document.getElementById("statusmark_vl").classList.add("primary")
+    }
+
+    if(jsonResponse.pumpe == "Pumpe: Aktiv"){
+      document.getElementById("statusmark_pumpe").classList.add("tertiary")
+      document.getElementById("statusmark_pumpe").classList.remove("primary")
+    }else{
+      document.getElementById("statusmark_pumpe").classList.remove("tertiary")
+      document.getElementById("statusmark_pumpe").classList.add("primary")
     }
     
     };
@@ -185,4 +205,26 @@ function regular_update () {
     
 
 
+}
+
+function start_pump () {
+  var req = new XMLHttpRequest();
+  req.overrideMimeType("application/json");
+  url = "/api/pump/start"
+  req.open('GET', url, true);
+  req.send(null);
+  req.onload  = function() {
+      window.location.assign("/");
+      };
+}
+
+function stop_pump () {
+  var req = new XMLHttpRequest();
+  req.overrideMimeType("application/json");
+  url = "/api/pump/stop"
+  req.open('GET', url, true);
+  req.send(null);
+  req.onload  = function() {
+      window.location.assign("/");
+      };
 }
