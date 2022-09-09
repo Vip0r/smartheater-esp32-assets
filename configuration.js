@@ -460,8 +460,10 @@ function onload () {
     document.getElementById("wifi_key").value = jsonResponse.wifi_key;
     document.getElementById("smartmeter_type").value = jsonResponse.smartmeter_type;
     document.getElementById("smartmeter_host").value = jsonResponse.smartmeter_host;
+    document.getElementById("puffer").value = jsonResponse.puffer;
     document.getElementById("pumpe").value = jsonResponse.pumpe;
     document.getElementById("debuglevel").value = jsonResponse.debuglevel;
+
 
     document.getElementById("heizstab.id1.prio").value = jsonResponse.heizstab.id1.prio;
     document.getElementById("heizstab.id1.name_kurz").value = jsonResponse.heizstab.id1.name_kurz;
