@@ -128,6 +128,12 @@ function regular_update () {
     document.getElementById("mode_bath").value = jsonResponse.mode_bath;
     if(jsonResponse.mode_bath == "disabled"){
       document.getElementById("mode_bath").disabled = 1
+      const sel = document.getElementById("mode_bath");
+      const opt = document.createElement("option");
+      opt.value = "disabled";
+      opt.text = "Deaktiviert"
+      sel.add(opt, sel.options[1])
+      document.getElementById("mode_bath").value = "disabled"
     }
 
 
