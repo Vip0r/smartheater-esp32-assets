@@ -7,6 +7,9 @@ function updateConfig () {
     || document.getElementById("wifi_key").value !== window.current_config.wifi_key
     || document.getElementById("smartmeter_type").value !== window.current_config.smartmeter_type
     || document.getElementById("smartmeter_host").value !== window.current_config.smartmeter_host 
+    || document.getElementById("puffer").value !== window.current_config.puffer 
+    || document.getElementById("pumpe").value !== window.current_config.pumpe
+    || document.getElementById("debuglevel").value !== window.current_config.debuglevel
     || document.getElementById("heizstab.id1.prio").value !== window.current_config.heizstab.id1.prio
     || document.getElementById("heizstab.id1.name_kurz").value !== window.current_config.heizstab.id1.name_kurz
     || document.getElementById("heizstab.id1.name").value !== window.current_config.heizstab.id1.name
@@ -121,6 +124,14 @@ function updateConfig () {
         || !Number.isInteger(parseInt(document.getElementById("heizstab.id1.max_leistung").value)))
         {
             alert("Max. Leistung des Heizstabs 1 muss zwischen 0 und 10000W liegen")
+            err=true 
+        }
+
+        if(document.getElementById("puffer").value < 0 
+        || document.getElementById("puffer").value > 1000
+        || !Number.isInteger(parseInt(document.getElementById("puffer").value)))
+        {
+            alert("Der Puffer für die Überschusskalkulation muss zwischen 0 und 1000 liegen")
             err=true 
         }
 
@@ -329,6 +340,9 @@ function updateConfig () {
             newconfig.wifi_key = document.getElementById("wifi_key").value
             newconfig.smartmeter_type = document.getElementById("smartmeter_type").value
             newconfig.smartmeter_host = document.getElementById("smartmeter_host").value
+            newconfig.puffer = document.getElementById("puffer").value
+            newconfig.pumpe = document.getElementById("pumpe").value
+            newconfig.debuglevel = document.getElementById("debuglevel").value
 
             newconfig.heizstab.id1.name_kurz = document.getElementById("heizstab.id1.name_kurz").value
             newconfig.heizstab.id1.name = document.getElementById("heizstab.id1.name").value
@@ -446,6 +460,8 @@ function onload () {
     document.getElementById("wifi_key").value = jsonResponse.wifi_key;
     document.getElementById("smartmeter_type").value = jsonResponse.smartmeter_type;
     document.getElementById("smartmeter_host").value = jsonResponse.smartmeter_host;
+    document.getElementById("pumpe").value = jsonResponse.pumpe;
+    document.getElementById("debuglevel").value = jsonResponse.debuglevel;
 
     document.getElementById("heizstab.id1.prio").value = jsonResponse.heizstab.id1.prio;
     document.getElementById("heizstab.id1.name_kurz").value = jsonResponse.heizstab.id1.name_kurz;
