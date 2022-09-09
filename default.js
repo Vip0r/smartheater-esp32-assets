@@ -172,7 +172,13 @@ function regular_update () {
       document.getElementById("statusmark_pumpe").classList.remove("tertiary")
       document.getElementById("statusmark_pumpe").classList.add("primary")
     }
-    
+
+
+    if(jsonResponse.pumpe == "Pumpe: Deaktiviert"){
+      document.getElementById("button_start_pump").disabled = 1
+      document.getElementById("button_stop_pump").disabled = 1
+      }
+
     };
 
     
