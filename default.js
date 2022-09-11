@@ -76,12 +76,12 @@ function regular_update () {
       document.getElementById("statusmark_vl").classList.add("primary")
     }
 
-    if(jsonResponse.pumpe == "Pumpe: Aktiv"){
-      document.getElementById("statusmark_pumpe").classList.add("tertiary")
-      document.getElementById("statusmark_pumpe").classList.remove("primary")
-    }else{
+    if(jsonResponse.status_pumpe == "Pumpe: Inaktiv" || jsonResponse.status_pumpe == "Pumpe: Deaktiviert"){
       document.getElementById("statusmark_pumpe").classList.remove("tertiary")
       document.getElementById("statusmark_pumpe").classList.add("primary")
+    }else{
+      document.getElementById("statusmark_pumpe").classList.add("tertiary")
+      document.getElementById("statusmark_pumpe").classList.remove("primary")
     }
 
 
@@ -126,16 +126,6 @@ function regular_update () {
     document.getElementById("mode_ww").value = jsonResponse.mode_ww;
     document.getElementById("mode_vl").value = jsonResponse.mode_vl;
     document.getElementById("mode_bath").value = jsonResponse.mode_bath;
-    if(jsonResponse.mode_bath == "disabled"){
-      document.getElementById("mode_bath").disabled = 1
-      const sel = document.getElementById("mode_bath");
-      const opt = document.createElement("option");
-      opt.value = "disabled";
-      opt.text = "Deaktiviert"
-      sel.add(opt, sel.options[1])
-      document.getElementById("mode_bath").value = "disabled"
-    }
-
 
     document.getElementById("status_ww").innerHTML = jsonResponse.status_ww;
     document.getElementById("status_bath").innerHTML = jsonResponse.status_bath;
@@ -175,12 +165,12 @@ function regular_update () {
       document.getElementById("statusmark_vl").classList.add("primary")
     }
 
-    if(jsonResponse.status_pumpe == "Pumpe: Aktiv"){
-      document.getElementById("statusmark_pumpe").classList.add("tertiary")
-      document.getElementById("statusmark_pumpe").classList.remove("primary")
-    }else{
+    if(jsonResponse.status_pumpe == "Pumpe: Inaktiv" || jsonResponse.status_pumpe == "Pumpe: Deaktiviert"){
       document.getElementById("statusmark_pumpe").classList.remove("tertiary")
       document.getElementById("statusmark_pumpe").classList.add("primary")
+    }else{
+      document.getElementById("statusmark_pumpe").classList.add("tertiary")
+      document.getElementById("statusmark_pumpe").classList.remove("primary")
     }
 
 
