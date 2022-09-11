@@ -41,7 +41,7 @@ function regular_update () {
     document.getElementById("status_ww").innerHTML = jsonResponse.status_ww;
     document.getElementById("status_bath").innerHTML = jsonResponse.status_bath;
     document.getElementById("status_vl").innerHTML = jsonResponse.status_vl;
-    document.getElementById("status_pumpe").innerHTML = jsonResponse.pumpe;
+    document.getElementById("status_pumpe").innerHTML = jsonResponse.status_pumpe;
 
     document.getElementById("status").innerHTML = jsonResponse.status;
     if(jsonResponse.status == "Betrieb"){
@@ -140,7 +140,7 @@ function regular_update () {
     document.getElementById("status_ww").innerHTML = jsonResponse.status_ww;
     document.getElementById("status_bath").innerHTML = jsonResponse.status_bath;
     document.getElementById("status_vl").innerHTML = jsonResponse.status_vl;
-    document.getElementById("status_pumpe").innerHTML = jsonResponse.pumpe;
+    document.getElementById("status_pumpe").innerHTML = jsonResponse.status_pumpe;
 
     document.getElementById("status").innerHTML = jsonResponse.status;
     if(jsonResponse.status == "Betrieb"){
