@@ -41,7 +41,12 @@ function regular_update () {
     document.getElementById("status_ww").innerHTML = jsonResponse.status_ww;
     document.getElementById("status_bath").innerHTML = jsonResponse.status_bath;
     document.getElementById("status_vl").innerHTML = jsonResponse.status_vl;
-    document.getElementById("status_pumpe").innerHTML = jsonResponse.status_pumpe;
+    
+    if(jsonResponse.status_pumpe == "Pumpe: Aktiv"){
+      document.getElementById("status_pumpe").innerHTML = jsonResponse.status_pumpe + "(" + jsonResponse.status_pumpe_runtime_minutes + " Min)";
+    }else{
+      document.getElementById("status_pumpe").innerHTML = jsonResponse.status_pumpe;
+    }
 
     document.getElementById("status").innerHTML = jsonResponse.status;
     if(jsonResponse.status == "Betrieb"){
@@ -130,8 +135,13 @@ function regular_update () {
     document.getElementById("status_ww").innerHTML = jsonResponse.status_ww;
     document.getElementById("status_bath").innerHTML = jsonResponse.status_bath;
     document.getElementById("status_vl").innerHTML = jsonResponse.status_vl;
-    document.getElementById("status_pumpe").innerHTML = jsonResponse.status_pumpe;
 
+    if(jsonResponse.status_pumpe == "Pumpe: Aktiv"){
+      document.getElementById("status_pumpe").innerHTML = jsonResponse.status_pumpe + "(" + jsonResponse.status_pumpe_runtime_minutes + " Min)";
+    }else{
+      document.getElementById("status_pumpe").innerHTML = jsonResponse.status_pumpe;
+    }
+  
     document.getElementById("status").innerHTML = jsonResponse.status;
     if(jsonResponse.status == "Betrieb"){
       document.getElementById("statusmark").classList.add("tertiary")
