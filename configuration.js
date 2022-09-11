@@ -7,8 +7,7 @@ function updateConfig () {
     || document.getElementById("wifi_key").value !== window.current_config.wifi_key
     || document.getElementById("smartmeter_type").value !== window.current_config.smartmeter_type
     || document.getElementById("smartmeter_host").value !== window.current_config.smartmeter_host 
-    || document.getElementById("puffer").value !== window.current_config.puffer 
-    || document.getElementById("pumpe").value !== window.current_config.pumpe
+    || document.getElementById("puffer").value !== window.current_config.puffer
     || document.getElementById("debuglevel").value !== window.current_config.debuglevel
     || document.getElementById("heizstab.id1.prio").value !== window.current_config.heizstab.id1.prio
     || document.getElementById("heizstab.id1.name_kurz").value !== window.current_config.heizstab.id1.name_kurz
@@ -17,7 +16,9 @@ function updateConfig () {
     || document.getElementById("heizstab.id1.betriebsmodus").value !== window.current_config.heizstab.id1.betriebsmodus
     || document.getElementById("heizstab.id1.max_leistung").value !== window.current_config.heizstab.id1.max_leistung
     || document.getElementById("heizstab.id1.soll_temp").value !== window.current_config.heizstab.id1.soll_temp
-    || document.getElementById("heizstab.id1.hysterese").value !== window.current_config.heizstab.id1.hysterese
+    || document.getElementById("heizstab.id1.hysterese").value !== window.current_config.heizstab.id1.hysterese  
+    || document.getElementById("heizstab.id1.pumpe").value !== window.current_config.heizstab.id1.pumpe
+    || document.getElementById("heizstab.id1.pumpe_nachlaufzeit").value !== window.current_config.heizstab.id1.pumpe_nachlaufzeit
     || document.getElementById("heizstab.id1.pwm.100").value !== window.current_config.heizstab.id1.pwm["100"]
     || document.getElementById("heizstab.id1.pwm.95").value !== window.current_config.heizstab.id1.pwm["95"]
     || document.getElementById("heizstab.id1.pwm.90").value !== window.current_config.heizstab.id1.pwm["90"]
@@ -341,7 +342,6 @@ function updateConfig () {
             newconfig.smartmeter_type = document.getElementById("smartmeter_type").value
             newconfig.smartmeter_host = document.getElementById("smartmeter_host").value
             newconfig.puffer = document.getElementById("puffer").value
-            newconfig.pumpe = document.getElementById("pumpe").value
             newconfig.debuglevel = document.getElementById("debuglevel").value
 
             newconfig.heizstab.id1.name_kurz = document.getElementById("heizstab.id1.name_kurz").value
@@ -352,6 +352,10 @@ function updateConfig () {
             newconfig.heizstab.id1.max_leistung = document.getElementById("heizstab.id1.max_leistung").value
             newconfig.heizstab.id1.soll_temp = document.getElementById("heizstab.id1.soll_temp").value
             newconfig.heizstab.id1.hysterese = document.getElementById("heizstab.id1.hysterese").value
+
+            newconfig.heizstab.id1.pumpe = document.getElementById("heizstab.id1.pumpe").value
+            newconfig.heizstab.id1.pumpe_nachlaufzeit = document.getElementById("heizstab.id1.pumpe_nachlaufzeit").value
+
             newconfig.heizstab.id1.pwm["100"] = document.getElementById("heizstab.id1.pwm.100").value
             newconfig.heizstab.id1.pwm["95"] = document.getElementById("heizstab.id1.pwm.95").value
             newconfig.heizstab.id1.pwm["90"] = document.getElementById("heizstab.id1.pwm.90").value
@@ -461,7 +465,6 @@ function onload () {
     document.getElementById("smartmeter_type").value = jsonResponse.smartmeter_type;
     document.getElementById("smartmeter_host").value = jsonResponse.smartmeter_host;
     document.getElementById("puffer").value = jsonResponse.puffer;
-    document.getElementById("pumpe").value = jsonResponse.pumpe;
     document.getElementById("debuglevel").value = jsonResponse.debuglevel;
 
     document.getElementById("heizstab.id1.prio").value = jsonResponse.heizstab.id1.prio;
@@ -472,6 +475,8 @@ function onload () {
     document.getElementById("heizstab.id1.max_leistung").value = jsonResponse.heizstab.id1.max_leistung;
     document.getElementById("heizstab.id1.soll_temp").value = jsonResponse.heizstab.id1.soll_temp;
     document.getElementById("heizstab.id1.hysterese").value = jsonResponse.heizstab.id1.hysterese;
+    document.getElementById("heizstab.id1.pumpe").value = jsonResponse.pumpe;
+    document.getElementById("heizstab.id1.pumpe_nachlaufzeit").value = jsonResponse.pumpe_nachlaufzeit;
 
     document.getElementById("heizstab.id1.pwm.100").value = jsonResponse.heizstab.id1.pwm["100"];
     document.getElementById("heizstab.id1.pwm.100_lbl").innerHTML = "100 Prozent ("+jsonResponse.heizstab.id1.max_leistung/100*100+"W)";
