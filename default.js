@@ -175,7 +175,7 @@ function regular_update () {
       document.getElementById("statusmark_vl").classList.add("primary")
     }
 
-    if(jsonResponse.pumpe == "Pumpe: Aktiv"){
+    if(jsonResponse.status_pumpe == "Pumpe: Aktiv"){
       document.getElementById("statusmark_pumpe").classList.add("tertiary")
       document.getElementById("statusmark_pumpe").classList.remove("primary")
     }else{
@@ -184,7 +184,7 @@ function regular_update () {
     }
 
 
-    if(jsonResponse.pumpe == "Pumpe: Deaktiviert"){
+    if(jsonResponse.status_pumpe == "Pumpe: Deaktiviert"){
       document.getElementById("button_start_pump").disabled = 1
       document.getElementById("button_stop_pump").disabled = 1
       }
