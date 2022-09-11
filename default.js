@@ -43,7 +43,7 @@ function regular_update () {
     document.getElementById("status_vl").innerHTML = jsonResponse.status_vl;
     
     if(jsonResponse.status_pumpe == "Pumpe: Aktiv"){
-      document.getElementById("status_pumpe").innerHTML = jsonResponse.status_pumpe + "(" + jsonResponse.status_pumpe_runtime_minutes + " Min)";
+      document.getElementById("status_pumpe").innerHTML = jsonResponse.status_pumpe + " (" + jsonResponse.status_pumpe_runtime_minutes + " Min)";
     }else{
       document.getElementById("status_pumpe").innerHTML = jsonResponse.status_pumpe;
     }
