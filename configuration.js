@@ -475,8 +475,8 @@ function onload () {
     document.getElementById("heizstab.id1.max_leistung").value = jsonResponse.heizstab.id1.max_leistung;
     document.getElementById("heizstab.id1.soll_temp").value = jsonResponse.heizstab.id1.soll_temp;
     document.getElementById("heizstab.id1.hysterese").value = jsonResponse.heizstab.id1.hysterese;
-    document.getElementById("heizstab.id1.pumpe").value = jsonResponse.pumpe;
-    document.getElementById("heizstab.id1.pumpe_nachlaufzeit").value = jsonResponse.pumpe_nachlaufzeit;
+    document.getElementById("heizstab.id1.pumpe").value = jsonResponse.heizstab.id1.pumpe;
+    document.getElementById("heizstab.id1.pumpe_nachlaufzeit").value = jsonResponse.heizstab.id1.pumpe_nachlaufzeit;
 
     document.getElementById("heizstab.id1.pwm.100").value = jsonResponse.heizstab.id1.pwm["100"];
     document.getElementById("heizstab.id1.pwm.100_lbl").innerHTML = "100 Prozent ("+jsonResponse.heizstab.id1.max_leistung/100*100+"W)";
