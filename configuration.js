@@ -1,7 +1,7 @@
 
 function updateConfig () {
 
-    //check if anything changed
+    //check if anything change
     if(document.getElementById("wifi_mode").value !== window.current_config.wifi_mode 
     || document.getElementById("wifi_ssid").value !== window.current_config.wifi_ssid 
     || document.getElementById("wifi_key").value !== window.current_config.wifi_key
