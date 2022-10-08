@@ -93,7 +93,7 @@ function set_parameter () {
         var jsonData= JSON.stringify(data);
         //base64 encode the object for transfer
         var encodedData = btoa(jsonData);
-        //url encode
+        //url encode da
         var urlencodedData = encodeURIComponent(encodedData)
 
         url = "/pwm_test/update/data="+urlencodedData
